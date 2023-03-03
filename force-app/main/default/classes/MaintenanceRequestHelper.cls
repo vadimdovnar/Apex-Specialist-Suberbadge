@@ -40,7 +40,7 @@ public with sharing class MaintenanceRequestHelper {
                 Case nc = new Case(
                     ParentId = cc.Id,
                     Status = 'New',
-                    Subject = 'Routine Maintenance',
+                    Subject = 'New Request',
                     Type = 'Routine Maintenance',
                     Vehicle__c = cc.Vehicle__c,
                     Equipment__c = cc.Equipment__c,

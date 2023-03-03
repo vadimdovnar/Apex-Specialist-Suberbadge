@@ -1,6 +1,6 @@
 @isTest
 public class TestDataFactory {
-    public static List<Case> getData(Integer numOfCase, Integer numOfProduct) {
+    public static List<Case> createData(Integer numOfCase, Integer numOfProduct) {
         List<Case> caseList = new List<Case>();
         // create Vechicle
         Vehicle__c vechicle = new Vehicle__c(Name = 'Vechicle');
@@ -14,6 +14,7 @@ public class TestDataFactory {
             product.Maintenance_Cycle__c = i + 50;
             product.Name = 'Equipment ' + i;
             product.Replacement_Part__c = true;
+            listProduct.add(product);
         }
         insert listProduct;
         // create Case
