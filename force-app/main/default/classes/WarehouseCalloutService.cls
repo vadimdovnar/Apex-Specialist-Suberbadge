@@ -17,12 +17,7 @@ public with sharing class WarehouseCalloutService implements Queueable, Database
         httpRequest.setEndpoint(WAREHOUSE_URL);
         httpRequest.setMethod('GET');
         HttpResponse httpResponse = http.send(httpRequest);
-        if (httpResponse.getStatusCode() == 200) {
-            return httpResponse;
-        } else {
-            System.debug('Status code is\'t 200');
-            return null;
-        }
+        return httpResponse;
     }
     //return list of product object for upsert
     public static List<Product2> getProducts(HttpResponse response) {

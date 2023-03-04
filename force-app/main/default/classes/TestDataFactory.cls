@@ -46,13 +46,4 @@ public class TestDataFactory {
         insert newEquipmentMaintenanceItems;
         return caseList;
     }
-    public static List<Product2> getEquipment() {
-        List<Product2> listProduct = new List<Product2>();
-        Product2 product1 = new Product2(Name = 'Generator 1000 kW', ProductCode = '100003', Warehouse_SKU__c = '55d66226726b611100aaf741', Cost__c = 5000, Lifespan_Months__c = 120, Maintenance_Cycle__c = 365, Current_Inventory__c = 5, Replacement_Part__c = false);
-        Product2 product2 = new Product2(Name = 'Cooling Fan', ProductCode = '100004', Warehouse_SKU__c = '55d66226726b611100aaf742', Cost__c = 300, Lifespan_Months__c = 0, Maintenance_Cycle__c = 0, Current_Inventory__c = 183, Replacement_Part__c = false);
-        listProduct.add(product1);
-        listProduct.add(product2);
-        insert listProduct;
-        return listProduct;
-    }
 }
