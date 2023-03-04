@@ -3,6 +3,7 @@ public with sharing class WarehouseCalloutService implements Queueable, Database
 
     public void execute(QueueableContext context) {
         HttpResponse response = getHttpResponse();
+        System.debug(response.getBody());
         List<Product2> products = getProducts(response);
         System.debug(products);
         if (!products.isEmpty()) {
