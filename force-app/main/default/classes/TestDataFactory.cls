@@ -7,7 +7,7 @@ public class TestDataFactory {
         insert vechicle;
         //create Product
         List<Product2> listProduct = new List<Product2>();
-        for(Integer i = 0; i < numOfProduct; i++) {
+        for (Integer i = 0; i < numOfProduct; i++) {
             Product2 product = new Product2();
             product.Cost__c = i + 100;
             product.Lifespan_Months__c = i + 1;
@@ -22,12 +22,12 @@ public class TestDataFactory {
             Case newCase = new Case();
             newCase.Status = 'New';
             newCase.Origin = 'Web';
-            if(Math.mod(i, 2) == 0) {
+            if (Math.mod(i, 2) == 0) {
                 newCase.Type = 'Repair';
             } else {
                 newCase.Type = 'Routine Maintenance';
             }
-            if(i < numOfProduct) {
+            if (i < numOfProduct) {
                 newCase.Equipment__c = listProduct.get(i).Id;
             } else {
                 newCase.Equipment__c = listProduct.get(0).Id;
@@ -37,7 +37,7 @@ public class TestDataFactory {
         insert caseList;
         // create Equipment Maintenance Item
         List<Equipment_Maintenance_Item__c> newEquipmentMaintenanceItems = new List<Equipment_Maintenance_Item__c>();
-        for(Integer i = 0; i < numOfProduct; i++) {
+        for (Integer i = 0; i < numOfProduct; i++) {
             Equipment_Maintenance_Item__c newEquipmentMaintenanceItem = new Equipment_Maintenance_Item__c();
             newEquipmentMaintenanceItem.Equipment__c = caseList.get(i).Equipment__c;
             newEquipmentMaintenanceItem.Maintenance_Request__c = caseList.get(i).Id;
@@ -45,5 +45,14 @@ public class TestDataFactory {
         }
         insert newEquipmentMaintenanceItems;
         return caseList;
+    }
+    public static List<Product2> getEquipment() {
+        List<Product2> listProduct = new List<Product2>();
+        Product2 product1 = new Product2(Name = 'Generator 1000 kW', ProductCode = '100003', Warehouse_SKU__c = '55d66226726b611100aaf741', Cost__c = 5000, Lifespan_Months__c = 120, Maintenance_Cycle__c = 365, Current_Inventory__c = 5, Replacement_Part__c = false);
+        Product2 product2 = new Product2(Name = 'Cooling Fan', ProductCode = '100004', Warehouse_SKU__c = '55d66226726b611100aaf742', Cost__c = 300, Lifespan_Months__c = 0, Maintenance_Cycle__c = 0, Current_Inventory__c = 183, Replacement_Part__c = false);
+        listProduct.add(product1);
+        listProduct.add(product2);
+        insert listProduct;
+        return listProduct;
     }
 }
